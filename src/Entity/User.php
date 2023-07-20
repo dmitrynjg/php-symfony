@@ -9,7 +9,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 
-#[ORM\Entity(repositoryClass: UserRepository::class, readOnly: true)]
+#[ORM\Entity(repositoryClass: UserRepository::class)]
+#[ORM\Table('users')]
 
 class User
 {
