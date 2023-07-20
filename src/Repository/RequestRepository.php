@@ -26,9 +26,9 @@ class RequestRepository extends ServiceEntityRepository
         parent::__construct($registry, Request::class);
     }
 
-    public function search($page = 1, $limit = 10)
+    public function search($page = 1)
     {
-        $queryBuilder = $this->createQueryBuilder('r')->Select('r.id, r.text, u.id userId, u.name, u.surname, u.fatherName, u.login, u.email')->join('r.user', 'u');
+        $queryBuilder = $this->createQueryBuilder('r')->Select('r.id, r.text, u.id userId, u.name, u.surname, u.fatherName, u.login, u.email')->join('r.user', 'u')->orderBy('r.id', 'DESC');
         $paginator = new Paginator($queryBuilder, 3);
         return $paginator->paginate($page ?? 1);
     }

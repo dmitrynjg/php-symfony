@@ -8,7 +8,8 @@ use App\Entity\User;
 use Symfony\Component\Serializer\Annotation\Ignore;
 
 
-#[ORM\Entity(repositoryClass: RequestRepository::class, readOnly: true)]
+#[ORM\Entity(repositoryClass: RequestRepository::class)]
+#[ORM\Table('request')]
 
 class Request
 {
